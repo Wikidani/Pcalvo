@@ -1,0 +1,43 @@
+#!/bin/bash
+echo "Bienvenido al rincón del denunciante por favor inserte la cédula del denunciado. Ortiba."
+read ci
+grep $ci lista-inquilinos.txt>>mostrador.exe
+
+clear
+cat mostrador.exe
+FORMULARIO1=0
+	while [ $FORMULARIO1 -le 0 ]; do
+    echo "¿ES este a quien desea delatar vuesa merced?" 
+			echo "s / n"
+			read respuestagc
+			if [ "$respuestagc" == "s" ] 
+				then
+					clear
+					let FORMULARIO1=$FORMULARIO1+1
+				else
+					clear
+					let FORMULARIO1=$FORMULARIO1
+					echo "Ingrese una respuesta VALIDA"
+			fi
+			if [ "$respuestagc" == "n" ] 
+				then
+					clear
+					let FORMULARIO1=$FORMULARIO1+1
+				else
+					clear
+					let FORMULARIO1=$FORMULARIO1
+					echo "Adelante, inserte entonces el motivo por el cual desea inculparlo"
+					read motivo
+					echo "Por favor, firme la denuncia y no sea cobarde(Con la cedula, si es posible)."
+					read cidenunciante
+					clear
+					DATE=`date '+%Y-%m-%d %H:%M:%S'`					
+					echo "Esta es tu denuncia, ojalá estés orgulloso"
+					echo "$DATE ">>multados.db
+					echo "$cidenunciante">>multados.db
+					echo " $ci">>multados.db
+					echo " $motivo">>multados.db
+					last | tail -n 4 multados.db
+						
+			fi
+	done
