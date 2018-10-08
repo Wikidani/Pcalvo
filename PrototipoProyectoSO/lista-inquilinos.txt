@@ -1,0 +1,4 @@
+NOMBRE:APELLIDO:CI:GCOMUNES:MULTAS:1USO
+Matias : Blanco : 8888889-2 : Si : No : Si
+dsadas : dsa : dasd : Si : No : Si
+marica tu : marica yo : 1337 : Si : No : No

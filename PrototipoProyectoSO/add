@@ -1,0 +1,161 @@
+        #!/bin/bash
+        # Asigna un archivo para guardar la lista
+        LISTA="lista-inquilinos.txt"
+
+        # Pide ingresar el nombre y apellido del inquilino, C.I, si esta al dia con los gastos comunes o no, si tiene multas y si ya ha alquilado el salon anteriormente
+        echo "Ingrese el nombre del inquilino:" 
+        read nombreinquilino
+	 clear
+        echo "Ingrese el apellido del inquilino" 
+        read apellidoinquilino
+	 clear
+        echo "Ingrese la C.I. del inquilino: " 
+        read ciinquilino
+	 clear
+	 # ¿El inquilino actualmente se encuentra al dia con los gastos comunes?
+	FORMULARIO1=0
+	while [ $FORMULARIO1 -le 0 ]; do
+    echo "¿El inquilino actualmente se encuentra al dia con los gastos comunes?" 
+			echo "Si / No"
+			read respuestagc
+			if [ "$respuestagc" == "Si" ] 
+				then
+					clear
+					let FORMULARIO1=$FORMULARIO1+1
+				else
+					clear
+					let FORMULARIO1=$FORMULARIO1
+					echo "Ingrese una respuesta VALIDA"
+			fi
+			if [ "$respuestagc" == "No" ] 
+				then
+					clear
+					let FORMULARIO1=$FORMULARIO1+1
+				else
+					clear
+					let FORMULARIO1=$FORMULARIO1
+					echo "Ingrese una respuesta VALIDA"
+			fi
+	done
+	# ¿El inquilino actualmente tiene multas?
+	FORMULARIO2=0
+	while [ $FORMULARIO2 -le 0 ]; do
+    echo "¿El inquilino actualmente tiene multas?" 
+			echo "Si / No"
+			read respuestamulta
+			if [ "$respuestamulta" == "Si" ] 
+				then
+					clear
+					let FORMULARIO2=$FORMULARIO2+1
+				else
+					clear
+					let FORMULARIO2=$FORMULARIO2
+					echo "Ingrese una respuesta VALIDA"
+			fi
+			if [ "$respuestamulta" == "No" ] 
+				then
+					clear
+					let FORMULARIO2=$FORMULARIO2+1
+				else
+					clear
+					let FORMULARIO2=$FORMULARIO2
+					echo "Ingrese una respuesta VALIDA"
+			fi
+	done
+	#¿El inquilino ha usado los servicios de alquiler del salon comunal anteriormente?
+	FORMULARIO3=0
+	while [ $FORMULARIO3 -le 0 ]; do
+    echo "¿El inquilino ha usado los servicios de alquiler del salon comunal anteriormente?" 
+			echo "Si / No"
+			read inquilinosalon
+			if [ "$inquilinosalon" == "Si" ] 
+				then
+					clear
+					let FORMULARIO3=$FORMULARIO3+1
+				else
+					clear
+					let FORMULARIO3=$FORMULARIO3
+					echo "Ingrese una respuesta VALIDA"
+			fi
+			if [ "$inquilinosalon" == "No" ] 
+				then
+					clear
+					let FORMULARIO3=$FORMULARIO3+1
+				else
+					clear
+					let FORMULARIO3=$FORMULARIO3
+					echo "Ingrese una respuesta VALIDA"
+			fi
+	done
+        
+        # Confirma los valores
+	 echo "--------------------------------------------------------------------------------"
+        echo "Confirme los valores ingresados anteriormente:"
+	 echo "--------------------------------------------------------------------------------"
+	 echo -e "Nombre del inquilino: $nombreinquilino"
+	 echo -e "Apelllido del inquilino: $apellidoinquilino"
+	 echo -e "Cedula de Identidad del inquilino: $ciinquilino"
+	 echo -e "El inquilino $respuestagc se encuentra al dia con los gastos comunes"
+	 echo -e "El inquilino $respuestamulta tiene multas vigentes"
+	 echo -e "El inquilino $inquilinosalon ha usado los servicios anteriormente"
+	 echo "--------------------------------------------------------------------------------"
+	 echo -n "Los datos seran guardados en el siguiente formato:"
+        echo -e "$nombreinquilino ; $apellidoinquilino ; $ciinquilino ; $respuestagc ; $respuestamulta ; $inquilinosalon \n"
+	 echo "--------------------------------------------------------------------------------"
+        echo -n "Si / No: "
+	 echo "--------------------------------------------------------------------------------"
+	FORMULARIO4=0
+	while [ $FORMULARIO4 -le 0 ]; do
+			read answer
+			if [ "$answer" == "Si" ] 
+				then
+            				# Guarda los valores en la base de datos (lista-inquilinos.txt)
+           				echo "$nombreinquilino : $apellidoinquilino : $ciinquilino : $respuestagc : $respuestamulta : $inquilinosalon" >> $LISTA
+					echo "Los datos han sido guardados"
+					let FORMULARIO4=$FORMULARIO4+1
+				else
+					clear
+					let FORMULARIO4=$FORMULARIO4
+	 echo "--------------------------------------------------------------------------------"
+        echo "Confirme los valores ingresados anteriormente:"
+	 echo "--------------------------------------------------------------------------------"
+	 echo -e "Nombre del inquilino: $nombreinquilino"
+	 echo -e "Apelllido del inquilino: $apellidoinquilino"
+	 echo -e "Cedula de Identidad del inquilino: $ciinquilino"
+	 echo -e "El inquilino $respuestagc se encuentra al dia con los gastos comunes"
+	 echo -e "El inquilino $respuestamulta tiene multas vigentes"
+	 echo -e "El inquilino $inquilinosalon ha usado los servicios anteriormente"
+	 echo "--------------------------------------------------------------------------------"
+	 echo -e "Los datos seran guardados en el siguiente formato:"
+        echo -e "$nombreinquilino ; $apellidoinquilino ; $ciinquilino ; $respuestagc ; $respuestamulta ; $inquilinosalon \n"
+	 echo "--------------------------------------------------------------------------------"
+        echo -n "Si / No: "
+	 echo "Ingrese una respuesta VALIDA"
+	 echo "--------------------------------------------------------------------------------"
+			fi
+			if [ "$answer" == "No" ] 
+				then
+					clear
+					echo "Los datos no han sido guardados"
+					let FORMULARIO4=$FORMULARIO4+1
+				else
+					clear
+					let FORMULARIO4=$FORMULARIO4
+	 echo "--------------------------------------------------------------------------------"
+        echo "Confirme los valores ingresados anteriormente:"
+	 echo "--------------------------------------------------------------------------------"
+	 echo -e "Nombre del inquilino: $nombreinquilino"
+	 echo -e "Apelllido del inquilino: $apellidoinquilino"
+	 echo -e "Cedula de Identidad del inquilino: $ciinquilino"
+	 echo -e "El inquilino $respuestagc se encuentra al dia con los gastos comunes"
+	 echo -e "El inquilino $respuestamulta tiene multas vigentes"
+	 echo -e "El inquilino $inquilinosalon ha usado los servicios anteriormente"
+	 echo "--------------------------------------------------------------------------------"
+	 echo -e "Los datos seran guardados en el siguiente formato:"
+        echo -e "$nombreinquilino ; $apellidoinquilino ; $ciinquilino ; $respuestagc ; $respuestamulta ; $inquilinosalon \n"
+	 echo "--------------------------------------------------------------------------------"
+        echo -n "Si / No: "
+	 echo "Ingrese una respuesta VALIDA"
+	 echo "--------------------------------------------------------------------------------"
+			fi
+	done
