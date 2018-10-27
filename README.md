@@ -93,3 +93,8 @@ Muestra todas las reservas.
 
 Pide una denuncia y la elimina
 
+## Reservas.db
+
+Ci_Reserva, Dia_Inicio, Mes_Inicio, Año_Inicio, Dia_final, Mes_final, Año_final, Hora_inicio, Hora_fianl
+
+
